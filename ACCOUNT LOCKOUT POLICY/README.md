@@ -6,7 +6,7 @@ This project simulates a fundamental security control: the **Account Lockout Pol
 ### 🛠️ Technical Implementation
 * **Language:** Python
 * **Control Flow:** Nested `while` loops for continuous user validation and credential checking.
-* **Logic:** * `intentos_restantes`: A dynamic counter to track remaining attempts.
+* **Logic:**  `intentos_restantes`: A dynamic counter to track remaining attempts.
     * `exit()`: Immediate termination of the session upon security violation.
 
 ### 🔍 Code Highlights & Logic
