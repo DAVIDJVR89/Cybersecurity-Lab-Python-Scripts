@@ -65,4 +65,26 @@ By selecting Option 3, you can view the stored usernames and their corresponding
 
 ---
 
-## 🚀 **My next step: putting it to the test in my virtual lab 💪**
+![](https://img.shields.io/badge/SECURITY-UPGRADED-green?style=for-the-badge&logo=github)
+
+## 🛡️ Security Upgrade: Protection against Brute-Force
+
+I have upgraded the authentication engine to include two critical security layers that protect against common unauthorized access attempts:
+
+### 1. Pre-Authentication User Validation
+* **The Logic:** The system now verifies if a username exists in the database *before* proceeding to password entry.
+* **IAM Impact:** This streamlines the authentication workflow and ensures that the system only processes credentials for valid identities, improving resource management.
+
+### 2. Account Lockout Policy (Brute Force Protection)
+* **The Logic:** A login attempt counter has been implemented. If the user exceeds the maximum allowed attempts, the system denies further access.
+* **IAM Impact:** This is a fundamental defense mechanism against **Brute Force** and **Dictionary Attacks**. It prevents automated scripts from guessing passwords by enforcing a lockout period, significantly reducing the attack surface.
+
+## 🛠️ Key IAM Concepts Applied
+
+* **Authentication:** Robust identity verification.
+* **Availability:** Preventing service exhaustion by blocking malicious actors.
+* **Security Best Practices:** Implementing "Fail-Safe" mechanisms to protect user credentials.
+
+---
+
+*Developed as part of a Cybersecurity & IAM learning path.*
