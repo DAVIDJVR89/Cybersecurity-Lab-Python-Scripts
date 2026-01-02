@@ -87,4 +87,34 @@ I have upgraded the authentication engine to include two critical security layer
 
 ---
 
+![](https://img.shields.io/badge/SECURITY-UPGRADED-green?style=for-the-badge&logo=github)
+
+## 🔒 Latest Security Enhancements: Password Complexity Policy
+
+I have upgraded the authentication engine to include a robust **Password Complexity Validator**. This ensures that all user credentials meet modern security standards before being processed.
+
+### 1. Multi-Factor Character Validation
+The system now enforces a strict policy where every password must contain at least:
+* **One Uppercase Letter** (`A-Z`): To prevent simple lowercase-only attacks.
+* **One Numeric Digit** (`0-9`): To increase the search space for brute-force attempts.
+* **One Special Character** (e.g., `!@#$%^&*`): Utilizing the `string.punctuation` library to ensure high entropy.
+
+### 2. Pre-Authentication Identity Check
+* The system verifies if a username exists in the database *before* requesting a password, streamlining the IAM workflow.
+
+### 3. Account Lockout Mechanism
+* A login attempt counter protects the system against **Brute Force** and **Dictionary Attacks** by blocking access after 3 failed attempts.
+
+### 4. Secure Hashing (SHA-256)
+* Credentials are never stored in plain text. The system uses the `hashlib` library to generate and store secure SHA-256 hashes.
+
+## 🛠️ Key IAM Concepts Applied
+
+* **Authentication:** Robust identity verification through complexity and hashing.
+* **Availability:** Preventing service exhaustion by blocking malicious actors.
+* **Security Best Practices:** Implementing "Fail-Safe" mechanisms and Password Policies.
+
+---
+
+
 *Developed as part of a Cybersecurity & IAM learning path.*
