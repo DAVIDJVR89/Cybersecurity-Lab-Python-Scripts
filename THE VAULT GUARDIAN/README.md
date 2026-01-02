@@ -107,14 +107,27 @@ The system now enforces a strict policy where every password must contain at lea
 
 ### 4. Secure Hashing (SHA-256)
 * Credentials are never stored in plain text. The system uses the `hashlib` library to generate and store secure SHA-256 hashes.
+  
 
-## 🛠️ Key IAM Concepts Applied
+## 🧠 Technical Logic: For Loop & Flag System
 
-* **Authentication:** Robust identity verification through complexity and hashing.
-* **Availability:** Preventing service exhaustion by blocking malicious actors.
-* **Security Best Practices:** Implementing "Fail-Safe" mechanisms and Password Policies.
+To implement the **Password Complexity Policy**, the system uses a robust scanning logic based on a `for` loop and boolean flags (markers).
+
+### 1. The "Scanner" (The For Loop)
+The password is treated as a collection of individual characters. The script initiates a loop that iterates through every single character:
+* `for caracter in password:`: This line tells Python to pick up the first letter, process it, then the second, and so on, until the entire string has been scanned.
+
+### 2. The "Detectors" (The Flags)
+Before the scan begins, the system initializes three boolean variables (flags) set to `False`:
+* `has_capital = False`
+* `has_number = False`
+* `has_symbol = False`
+
+As the loop processes each character, it uses conditional statements (`if`) to check the character type. For example, if a number is detected, the `has_number` flag is flipped to `True`. Once a flag is set to `True`, it remains "active" regardless of what the following characters are.
+
+### 3. The Final Validation
+The final security check occurs **outside** the loop. The system only grants access if all three flags are `True`. This ensures the entire password has been evaluated against the IAM policy before any hash is generated or any user is created.
+* 
 
 ---
 
-
-*Developed as part of a Cybersecurity & IAM learning path.*
